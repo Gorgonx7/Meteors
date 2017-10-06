@@ -10,12 +10,12 @@ namespace Game2
 {
    public class PilotMannager : Viewer
     {
-        private Texture2D m_ShipTexture;
+        private Texture2D m_ShipTexture = TextureDictionary.FindTexture("speedship");
         private Ship player;
         
-        public PilotMannager(int pWidth, int pHeight, Texture2D pShipTexture, Rectangle pShipRectange, Ship pPiolet ) : base(pWidth, pHeight, pShipTexture, pShipRectange) 
+        public PilotMannager(int pWidth, int pHeight, Rectangle pShipRectange, Ship pPiolet ) : base(pWidth, pHeight, pShipRectange) 
         {
-            m_ShipTexture = pShipTexture;
+            
             player = pPiolet;
 
 

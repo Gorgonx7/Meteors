@@ -28,18 +28,18 @@ namespace Game2
         private PilotMannager m_Pilot;
         private int m_Width;
         private int m_Height;
-        private Texture2D m_ShipTexture;
+        private Texture2D m_ShipTexture = TextureDictionary.FindTexture("speedship");
         private Rectangle m_ShipRectange;
-        public Viewer(int pWidth, int pHeight, Texture2D pShipTexture, Rectangle pShipRectange)
+        public Viewer(int pWidth, int pHeight, Rectangle pShipRectange)
         {
             m_Width = pWidth;
             m_Height = pHeight;
-            m_ShipTexture = pShipTexture;
+           
             m_ShipRectange = pShipRectange;   
         }
         public PilotMannager createNewPiolet(Ship player)
         {
-            m_Pilot = new PilotMannager(m_Width, m_Height, m_ShipTexture, m_ShipRectange, player);
+            m_Pilot = new PilotMannager(m_Width, m_Height, m_ShipRectange, player);
             return m_Pilot;
         }
         public void Update(GameTime gametime)

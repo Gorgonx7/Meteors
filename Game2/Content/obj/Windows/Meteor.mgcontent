@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Meteor.png</SourceFile>
-  <SourceTime>2017-09-10T14:51:45.6594023+01:00</SourceTime>
-  <DestFile>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/bin/Windows/Meteor.xnb</DestFile>
-  <DestTime>2017-09-12T21:18:20.1736006+01:00</DestTime>
+  <SourceFile>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/Meteor.png</SourceFile>
+  <SourceTime>2017-10-06T14:57:06.5299312+01:00</SourceTime>
+  <DestFile>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/bin/Windows/Meteor.xnb</DestFile>
+  <DestTime>2017-10-06T15:29:12.8868566+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T07:36:08+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

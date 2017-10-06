@@ -38,6 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Dictionarys\FontDictionary.cs" />
+    <Compile Include="Dictionarys\TextureDictionary.cs" />
     <Compile Include="Helpers\Animator.cs" />
     <Compile Include="Helpers\Console.cs" />
     <Compile Include="Helpers\MainMenu.cs" />

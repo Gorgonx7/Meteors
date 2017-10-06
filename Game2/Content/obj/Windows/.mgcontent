@@ -4,16 +4,16 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/speedship.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/background.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Laser.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/LoadBarMissile.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/LoadBarMissileBackground.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Meteor.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/SpriteFont.spritefont</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Pixel.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/shipTileSet.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/pepe.png</File>
-    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Explosion.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/speedship.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/background.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/Laser.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/LoadBarMissile.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/LoadBarMissileBackground.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/Meteor.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/SpriteFont.spritefont</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/Pixel.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/shipTileSet.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/pepe.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteor/branches/Feature/Game2/Content/Explosion.png</File>
   </SourceFiles>
 </SourceFileCollection>

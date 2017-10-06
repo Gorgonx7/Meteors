@@ -15,19 +15,18 @@ namespace Game2
     /// 
     /* Stuff todo
      * sort out ship interior
-     * figure out enemy ai
-     * while I'm at it figure out friendly ai
+     * figure out enemy ai UPDATE i have now learnt how to program logic in virtual inteligence
+     * while I'm at it figure out friendly ai UPDATE pathfinding using nodes and the golden algorithm
      * 
-     * Research network programming in XNA
-     * get enemys up and running in XNA
-     * Figure out how to show this to simon or alex without looking like a attention seeking dick
+     * Research network programming in XNA UPDATE ha nahhhhh
+     * get enemys up and running not
      * 
      */
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D m_ShipTexture, m_spaceBackground, m_ProjectileTexture,m_ProjectileLoadBar, m_MeteorTexture, m_ProjectileLoadBorder;
+        
         Rectangle m_LoadBarRect, m_MeteorRect, m_ShipRectange, m_persentageRect, m_backgroundRect, m_projectileRect;
         Console console;
         KeyboardState oldState = Keyboard.GetState();
@@ -41,7 +40,7 @@ namespace Game2
         Timer timer;
         Timer MeteorTimer;
         Timer ExplostionTimer;
-        Texture2D MeteorExplosoion;
+        
         Random m_RNG;
         List<Projectile> projectiles = new List<Projectile>();
         List<Meteor> Meteors = new List<Meteor>();
@@ -85,24 +84,31 @@ namespace Game2
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
+            TextureDictionary.AddTexture(Content.Load<Texture2D>("background"), "background");
+            TextureDictionary.AddTexture(Content.Load<Texture2D>("speedship"), "speedship");
+            TextureDictionary.AddTexture(Content.Load<Texture2D>("laser"), "Laser");
+            TextureDictionary.AddTexture(Content.Load<Texture2D>("LoadBarMissileBackground"), "LoadBarMissileBackground");
+            TextureDictionary.AddTexture(Content.Load<Texture2D>("LoadBarMissile"), "LoadBarMissile");
+            FontDictionary.Addfont(Content.Load<SpriteFont>("SpriteFont"), "SpriteFont");
+            TextureDictionary.AddTexture(Content.Load<Texture2D>("Meteor"), "Meteor");
+            TextureDictionary.AddTexture(Content.Load<Texture2D>("Explosion"), "Explosion");
+            TextureDictionary.AddTexture(Content.Load<Texture2D>("Pixel"), "Pixel");
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            m_ShipTexture = Content.Load<Texture2D>("speedship");
-            m_ShipRectange = new Rectangle(0, 0, m_ShipTexture.Width, m_ShipTexture.Height);
-            m_spaceBackground = Content.Load<Texture2D>("background");
-            m_backgroundRect = new Rectangle(0, 0, m_spaceBackground.Width, m_spaceBackground.Height);
-            m_ProjectileTexture = Content.Load<Texture2D>("laser");
-            m_projectileRect = new Rectangle(0, 0, m_ProjectileTexture.Width, m_ProjectileTexture.Height);
-            m_ProjectileLoadBar = Content.Load<Texture2D>("LoadBarMissileBackground");
-            m_ProjectileLoadBorder = Content.Load<Texture2D>("LoadBarMissile");
-            m_font = Content.Load<SpriteFont>("SpriteFont");
-            m_LoadBarRect = new Rectangle(5, 465, m_ProjectileLoadBar.Width, m_ProjectileLoadBar.Height);
-            m_MeteorTexture = Content.Load<Texture2D>("Meteor");
-            m_MeteorRect = new Rectangle(0, 0, m_MeteorTexture.Width, m_MeteorTexture.Height);
-            MeteorExplosoion = Content.Load<Texture2D>("Explosion");
             
-            console = new Console(Content.Load<SpriteFont>("SpriteFont"), Content.Load<Texture2D>("Pixel"));
+            m_ShipRectange = new Rectangle(0, 0, TextureDictionary.FindTexture("speedship").Width, TextureDictionary.FindTexture("speedship").Height);
+            
+            m_backgroundRect = new Rectangle(0, 0, TextureDictionary.FindTexture("background").Width, TextureDictionary.FindTexture("background").Height);
+            
+            m_projectileRect = new Rectangle(0, 0, TextureDictionary.FindTexture("Laser").Width, TextureDictionary.FindTexture("Laser").Height);
+            
+            m_LoadBarRect = new Rectangle(5, 465, TextureDictionary.FindTexture("LoadBarMissileBackground").Width, TextureDictionary.FindTexture("LoadBarMissileBackground").Height);
+           
+            m_MeteorRect = new Rectangle(0, 0, TextureDictionary.FindTexture("Meteor").Width, TextureDictionary.FindTexture("Meteor").Height);
+            
+            
+            console = new Console(FontDictionary.GetFont("SpriteFont"), TextureDictionary.FindTexture("Pixel"));
             //console.addLog("testLog");
-            m_Viewer = new Viewer(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, m_ShipTexture, m_ShipRectange);
+            m_Viewer = new Viewer(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, m_ShipRectange);
             playerOne = new Ship(m_ShipRectange, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             m_Pilot = m_Viewer.createNewPiolet(playerOne);
             timer = new Timer();
@@ -157,7 +163,7 @@ namespace Game2
                 if (capabilities[x].IsConnected && players[x] == null)
                 {
                     paused = false;
-                    players[x] = new Player(x, m_ShipTexture);
+                    players[x] = new Player(x, TextureDictionary.FindTexture("speedship"));
                 } else if(players[x] != null && !(capabilities[x].IsConnected))
                 {
                     paused = true;
@@ -251,7 +257,7 @@ namespace Game2
                 }
                 if (m_RNG.Next() % MeteorRate == 0)
                 {
-                    Meteors.Add(new Meteor(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, m_MeteorTexture, MeteorExplosoion, m_MeteorRect));
+                    Meteors.Add(new Meteor(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, TextureDictionary.FindTexture("Meteor"), TextureDictionary.FindTexture("Explosion"), m_MeteorRect));
                 }
                 for (int i = 0; i < Meteors.Count; i++)
                 {
@@ -300,13 +306,13 @@ namespace Game2
         public void generateMisile()
         {
 
-            projectiles.Add(new Projectile(m_Pilot.returnShipPosition(), m_ProjectileTexture));
+            projectiles.Add(new Projectile(m_Pilot.returnShipPosition(), TextureDictionary.FindTexture("Laser")));
 
 
         }
         public void DrawOutside(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(m_spaceBackground, m_backgroundRect, Color.White);
+            spriteBatch.Draw(TextureDictionary.FindTexture("background"), m_backgroundRect, Color.White);
             Vector2 playerPosition = m_Pilot.returnShipPosition();
 
             m_ShipRectange.X = (int)playerPosition.X;
@@ -315,9 +321,9 @@ namespace Game2
             for (int x = 0; x < projectiles.Count; x++)
             {
                 Vector2 projectilePosition = projectiles[x].GetPosition();
-                m_projectileRect.X = (int)projectilePosition.X + (m_ShipTexture.Width / 2) - 6;
+                m_projectileRect.X = (int)projectilePosition.X + (TextureDictionary.FindTexture("speedship").Width / 2) - 6;
                 m_projectileRect.Y = (int)projectilePosition.Y;
-                spriteBatch.Draw(m_ProjectileTexture, m_projectileRect, Color.White);
+                spriteBatch.Draw(TextureDictionary.FindTexture("Laser"), m_projectileRect, Color.White);
             }
             for (int x = 0; x < Meteors.Count; x++)
             {
@@ -327,26 +333,26 @@ namespace Game2
                 MeteorPosition = Meteors[x].GetPosition();
                 m_MeteorRect.X = (int)MeteorPosition.X;
                 m_MeteorRect.Y = (int)MeteorPosition.Y;
-                Vector2 MeteorCenter = new Vector2((m_MeteorTexture.Width / 2), (m_MeteorTexture.Height / 2));
+                Vector2 MeteorCenter = new Vector2((TextureDictionary.FindTexture("Meteor").Width / 2), (TextureDictionary.FindTexture("Meteor").Height / 2));
                 Meteors[x].setRect(m_MeteorRect);
                 // console.addLog(m_MeteorRect.X + " " + m_MeteorRect.Y);
-                spriteBatch.Draw(m_MeteorTexture, m_MeteorRect, new Rectangle(0, 0, m_MeteorTexture.Width, m_MeteorTexture.Height), Color.White, angle, MeteorCenter/* Vector2.Zero*/, SpriteEffects.None, 0f);
+                spriteBatch.Draw(TextureDictionary.FindTexture("Meteor"), m_MeteorRect, new Rectangle(0, 0, TextureDictionary.FindTexture("Meteor").Width, TextureDictionary.FindTexture("Meteor").Height), Color.White, angle, MeteorCenter/* Vector2.Zero*/, SpriteEffects.None, 0f);
             }
             for(int x = 0; x < Explosions.Count; x++)
             {
                 Vector2 ExplosionPosition = Explosions[x].GetPosition();
-                Rectangle ExplosionRect = new Rectangle((int)ExplosionPosition.X, (int)ExplosionPosition.Y, MeteorExplosoion.Width, MeteorExplosoion.Height);
-                spriteBatch.Draw(MeteorExplosoion, new Vector2(ExplosionRect.X - (50), ExplosionRect.Y - (50)), null, Color.White, 0, Vector2.Zero, new Vector2(0.5f,0.5f), SpriteEffects.None, 0f);
+                Rectangle ExplosionRect = new Rectangle((int)ExplosionPosition.X, (int)ExplosionPosition.Y, TextureDictionary.FindTexture("Explosion").Width, TextureDictionary.FindTexture("Explosion").Height);
+                spriteBatch.Draw(TextureDictionary.FindTexture("Explosion"), new Vector2(ExplosionRect.X - (50), ExplosionRect.Y - (50)), null, Color.White, 0, Vector2.Zero, new Vector2(0.5f,0.5f), SpriteEffects.None, 0f);
                 if (Explosions[x].Destroy())
                 {
                     Explosions.RemoveAt(x);
                 }
             }
             
-            spriteBatch.Draw(m_ShipTexture, m_ShipRectange, Color.White);
-            spriteBatch.Draw(m_ProjectileLoadBar, m_LoadBarRect, Color.White);
-            m_persentageRect = new Rectangle(0, 0, getPersentageCharge(), m_ProjectileLoadBar.Height);
-            spriteBatch.Draw(m_ProjectileLoadBorder, m_LoadBarRect, m_persentageRect, Color.White);
+            spriteBatch.Draw(TextureDictionary.FindTexture("speedship"), m_ShipRectange, Color.White);
+            spriteBatch.Draw(TextureDictionary.FindTexture("LoadBarMissile"), m_LoadBarRect, Color.White);
+            m_persentageRect = new Rectangle(0, 0, getPersentageCharge(), TextureDictionary.FindTexture("LoadBarMissile").Height);
+            spriteBatch.Draw(TextureDictionary.FindTexture("LoadBarMissileBackground"), m_LoadBarRect, m_persentageRect, Color.White);
             ExplostionTimer.Update();
             console.drawLogs(spriteBatch);
             //console.removeLog();
