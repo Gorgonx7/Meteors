@@ -142,9 +142,14 @@ namespace Game2
             }
             
         }
+        public static int Clamp(int value, int min, int max)
+        {
+            return (value < min) ? min : (value > max) ? max : value;
+        }
         float seconds = 1.0f / 60f;
         public void Update() {
-            
+            m_Velocity.X = Clamp((int)m_Velocity.X, -300, 300);
+            m_Velocity.Y = Clamp((int)m_Velocity.Y, -300, 300);
             m_Position = m_Position + m_Velocity * seconds;
             updateAngle();
         }
