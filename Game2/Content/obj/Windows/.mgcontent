@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/speedship.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/background.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Laser.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/LoadBarMissile.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/LoadBarMissileBackground.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Meteor.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/SpriteFont.spritefont</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Pixel.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/shipTileSet.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/pepe.png</File>
+    <File>D:/Users/James Gordon/Desktop/Meteors.git/branches/Feature/Development/Game2/Content/Explosion.png</File>
+  </SourceFiles>
+</SourceFileCollection>
