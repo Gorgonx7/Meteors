@@ -8,5 +8,9 @@ namespace Meteors
 {
     class ComponentHandler
     {
+        public ComponentHandler() {
+
+        }
+
     }
 }
